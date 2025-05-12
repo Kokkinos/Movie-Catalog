@@ -1,0 +1,99 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px;
+  width: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  transition: transform 0.2s;
+  height: 100%;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+}
+
+.movie-details {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  height: 100%;
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.movie-overview {
+  font-size: 0.85rem;
+  color: #444;
+  height: 100px;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+
+.movie-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #666;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 2px;
+}
+
+.genre-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.genre-badge {
+  color: #333;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  border: 1px solid #d0d0d0;
+}
+
+.movie-details-expanded {
+  max-height: 1000px;
+  transition: max-height 0.4s ease;
+}
+
+.trailer iframe{
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.reviews, .similar {
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.similar ul{
+  list-style: none;
+  padding-left: 16px;
+  margin: 0;
+}
+
+.similar li {
+  font-size: 0.85rem;
+
+}

@@ -1,0 +1,48 @@
+<div class="movie-card" (click)="toggleDetails()">
+  <img class="movie-poster" src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" />
+  
+  <div class="movie-details">
+    <div class="movie-title">{{ movie.title }}</div>
+
+    <div class="movie-info">
+      <div>{{ movie.vote_average | oneDecimal }}/10</div>
+
+      <div>{{ movie.release_date }}</div>
+    </div>
+    <div class="movie-overview">{{ movie.overview }}</div>
+    <div class="genre-badges">
+      @for (id of movie.genre_ids; track id) {
+      <span class="genre-badge">{{ genres[id] }}</span>
+      }
+    </div>
+  </div>
+  @if (expanded) {
+    <div class="movie-details-expanded">
+      @if(trailer) {
+        <div class="trailer">
+          <iframe [src]="trailer | safeUrl" frameborder="0" allowfullscreen title="Movie Trailer"></iframe>
+        </div>  
+      }
+      
+      @if (reviews.length) {
+        <div class="reviews">
+        <h3>Reviews</h3>
+        @for (review of reviews; track review.id) {
+        <p>{{ review.content }}</p>
+        }
+      </div>
+      }
+      @if(similarMovies.length) {
+        <div class="similar">
+        <h3>Similar Movies</h3>
+        <ul>
+          @for (movie of similarMovies; track movie.id) {
+          <li>{{ movie.title }}</li>
+          }
+        </ul>
+      </div>
+      }
+      
+    
+  </div>
+}
