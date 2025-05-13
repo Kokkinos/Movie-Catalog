@@ -9,6 +9,9 @@ import { SafeUrlPipe } from '../pipes/safeUrl.pipe';
   imports: [OneDecimalPipe,SafeUrlPipe],
   templateUrl: './movie-card.component.html',
   styleUrl: './movie-card.component.css',
+  host: {
+    '[class.expanded]': 'expanded'
+  }
 })
 export class MovieCardComponent {
   private movieService = inject(MovieService);
