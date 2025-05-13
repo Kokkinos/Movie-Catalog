@@ -1,14 +1,11 @@
 import {
   Component,
-  computed,
-  effect,
   HostListener,
   inject,
   OnInit,
   signal,
 } from '@angular/core';
 import { MovieService } from '../services/movie-service';
-import { GenreResponse } from '../models/models';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from '../search/search.component';

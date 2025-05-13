@@ -6,7 +6,7 @@ import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NowPlayingComponentComponent, MovieCardComponent, SearchComponent],
+  imports: [RouterOutlet, NowPlayingComponentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

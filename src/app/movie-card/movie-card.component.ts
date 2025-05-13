@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Movie } from '../models/models';
 import { OneDecimalPipe } from '../pipes/oneDecimal.pipe';
 import { MovieService } from '../services/movie-service';
@@ -22,11 +22,11 @@ export class MovieCardComponent {
   trailer: string | null = null;
   reviews: any[] = []
   similarMovies: any[] = [];
-  // expanded = computed(() => this.movieService.expandedMovieId() === this.movie.id);
+  
 
   toggleDetails() {
     this.expanded = !this.expanded;
-    // this.movieService.toggle(this.movie.id);
+    
     if (this.expanded) {
       const id = this.movie.id;
       this.movieService.getMovieDetails(id).subscribe(data => this.details = data);
