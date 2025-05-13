@@ -1,8 +1,12 @@
 # MovieCatalog
 
+This a project that fetches data [from https://www.themoviedb.org/](url). It uses infinite scrolling, a search and an expand feature.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
 
 ## Development server
+
+Run npm install inside a bash.
 
 To start a local development server, run:
 
