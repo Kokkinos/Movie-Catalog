@@ -33,6 +33,7 @@ export class NowPlayingComponentComponent implements OnInit {
       });
     });
     this.loadMore();
+    setTimeout(() => this.checkIfMoreItemsNeeded(), 500);
   }
 
   loadMore() {
@@ -84,6 +85,7 @@ export class NowPlayingComponentComponent implements OnInit {
     this.movieService.getNowPlaying(this.page).subscribe((data) => {
       this.movies.push(...data.results);
       this.loading.set(false);
+      this.checkIfMoreItemsNeeded();
     });
   }
 
@@ -93,6 +95,19 @@ export class NowPlayingComponentComponent implements OnInit {
       .subscribe((data) => {
         this.movies.push(...data.results);
         this.loading.set(false);
+        this.checkIfMoreItemsNeeded();
       });
+  }
+
+  private checkIfMoreItemsNeeded() {
+    setTimeout(() => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+
+      if (scrollHeight <= clientHeight) {
+        this.loadMore();
+        this.loading.set(false);
+      }
+    }, 0);
   }
 }
