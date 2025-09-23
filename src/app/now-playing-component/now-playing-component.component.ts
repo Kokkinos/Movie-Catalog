@@ -26,6 +26,8 @@ export class NowPlayingComponentComponent implements OnInit {
   searchParam!: string;
   isSearching: boolean = false;
 
+  totalPages: number = 0;
+
   ngOnInit(): void {
     this.movieService.getGenres().subscribe((data) => {
       data.genres.forEach((genre: any) => {
@@ -38,6 +40,9 @@ export class NowPlayingComponentComponent implements OnInit {
 
   loadMore() {
     if (this.loading()) return;
+    
+    if (this.isSearching && this.page >= this.totalPages) return;
+    
     this.loading.set(true);
     this.page++;
 
@@ -94,8 +99,12 @@ export class NowPlayingComponentComponent implements OnInit {
       .searchMovies(this.searchParam, this.page)
       .subscribe((data) => {
         this.movies.push(...data.results);
+        this.totalPages = data.total_pages;
         this.loading.set(false);
-        this.checkIfMoreItemsNeeded();
+        if(this.page < this.totalPages) {
+          this.checkIfMoreItemsNeeded();
+        }
+        
       });
   }
 
